@@ -1,6 +1,6 @@
 # Envconfig
 
-An easy way to build a config structure form environment variables.
+An easy way to build a config structure form environment variables in Rust.
 
 ## Usage
 
