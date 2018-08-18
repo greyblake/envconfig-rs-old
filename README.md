@@ -11,7 +11,7 @@ Let's say you application relies on the following environment variables:
 
 And you want to initialize `Config` structure like this one:
 
-```rs
+```rust
 struct Config {
   host: String,
   port: u16
@@ -20,7 +20,7 @@ struct Config {
 
 You can achieve this with the following code without boilerplate:
 
-```rs
+```rust
 #[macro_use] extern crate envconfig;
 
 envconfig!(Config {
@@ -39,3 +39,11 @@ To prevent flaky tests run them in one thread:
 ```
 cargo test -- --test-threads=1
 ```
+
+## License
+
+[MIT](https://github.com/greyblake/envconfig-rs/blob/master/LICENSE) © [Sergey Potapov](http://greyblake.com/)
+
+## Contributors
+
+- [greyblake](https://github.com/greyblake) Potapov Sergey - creator, maintainer.
