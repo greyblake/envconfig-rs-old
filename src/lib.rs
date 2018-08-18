@@ -1,7 +1,9 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+#[macro_use]
+extern crate failure;
+
+mod error;
+mod utils;
+mod envconfig_macro;
+
+pub use error::Error;
+pub use utils::load_var;
