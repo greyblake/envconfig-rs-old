@@ -3,10 +3,14 @@
 use std::env;
 use envconfig::Error;
 
-envconfig!(Config {
-    db_host: String = "DB_HOST",
-    db_port: u16 = "DB_PORT"
-});
+mod config {
+    envconfig!(Config {
+        db_host: String = "DB_HOST",
+        db_port: u16 = "DB_PORT"
+    });
+}
+
+use config::Config;
 
 
 fn setup() {

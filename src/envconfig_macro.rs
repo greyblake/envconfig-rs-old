@@ -2,14 +2,14 @@
 macro_rules! envconfig {
     ($type:ident {$($field_name:ident : $field_type:ty = $var_name:expr), *}) => {
         #[derive(Debug)]
-        struct $type {
+        pub struct $type {
             $(
-                $field_name: $field_type,
+                pub $field_name: $field_type,
             )*
         }
 
         impl $type {
-            fn init() -> Result<Self, ::envconfig::Error> {
+            pub fn init() -> Result<Self, ::envconfig::Error> {
                 $(
                     let $field_name: $field_type = ::envconfig::load_var($var_name)?;
                 )*
@@ -24,7 +24,7 @@ macro_rules! envconfig {
             }
 
             #[allow(dead_code)]
-            fn init_or_die() -> Self {
+            pub fn init_or_die() -> Self {
                 match Self::init() {
                     Ok(config) => config,
                     Err(err) => {
@@ -36,3 +36,4 @@ macro_rules! envconfig {
         }
     };
 }
+
